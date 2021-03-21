@@ -41,24 +41,6 @@ impl Task {
                 info!("Shutting down");
             }
         }
-
-        // match self.downloader.download(&self.url).await {
-        //     Ok(response) => {
-        //         for url in Parser::new(&response).extract_urls() {
-        //             if let Some(url) = build_absolute_url(&self.domain, url) {
-        //                 match self.tx.send(url) {
-        //                     Ok(_) => {}
-        //                     Err(_) => {
-        //                         info!("Failed to send. Receiver has probably shut down");
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     Err(_) => {
-        //         error!("Failed to download url: {}", self.url);
-        //     }
-        // }
     }
 }
 
