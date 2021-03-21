@@ -1,0 +1,29 @@
+[tasks.tarpaulin]
+install_crate = "cargo-tarpaulin"
+command = "cargo"
+args = [
+    "tarpaulin",
+    # Tarpaulin wants to instrument everything and leads to lots of rebuilds.
+    # "--target-dir", "tarpaulin-target",
+    # IDE/text editor extensions can process Lcov files to display in-editor stuff.
+    "--out", "Lcov",
+    "-p", "web-crawler-server"
+]
+
+[tasks.docker-build]
+command = "docker"
+args = [
+    "build",
+    "-t", "web-crawler-server",
+    "."
+]
+
+[tasks.deploy]
+command = "docker"
+args = [
+    "run",
+    "-d",
+    "--rm",
+    "-p", "3030:3030",
+    "web-crawler-server"
+]
