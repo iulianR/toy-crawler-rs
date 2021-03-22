@@ -76,6 +76,7 @@ The section about endpoints that need to be exposed was a bit ambiguous. From my
 * The response returned by `POST` on `/domains` can be improved. I didn't think the required changes are too complicated to justify spending time on them at this moment, but I can happily discuss about alternative solutions. I think the correct way to handle long running operations is to:
     * set the `Location:` header of the response to `/domains?domain=<url>`
     * return `Accepted 202` on subsequent request and enqueue crawl tasks
+* Detect bot traps (the ones that are not specified in `robots.txt`) and infinite domains (http://www2003.org/cdrom/papers/refereed/p007/p7-abiteboul.html).
 
 ## Requests (using httpie)
 
